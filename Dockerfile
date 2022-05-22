@@ -15,6 +15,6 @@ RUN "${CONDA_DIR}/envs/${conda_env}/bin/python" -m ipykernel install --user --na
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-RUN "${CONDA_DIR}/envs/${conda_env}/bin/pip" install --quiet --no-cache-dir lckr-jupyterlab-variableinspector
+RUN "${CONDA_DIR}/envs/${conda_env}/bin/pip" install --quiet --no-cache-dir lckr-jupyterlab-variableinspector matplotlib pandas
 
 RUN echo "conda activate ${conda_env}" >> "${HOME}/.bashrc"
