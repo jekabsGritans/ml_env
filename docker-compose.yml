@@ -6,7 +6,7 @@ services:
     container_name: lab
     volumes:
       - conda_vol:/opt/conda
-      - work_vol:/home/jovyan/work
+      - work_home_vol:/home/jovyan
     ports:
       - 11000:8888
     deploy:
@@ -20,4 +20,4 @@ services:
 
 volumes:
   conda_vol:
-  work_vol:
+  work_home_vol:
