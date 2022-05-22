@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  lab:
+    build: https://github.com/jekabsGritans/ml_env.git#main
+    container_name: lab
+    volumes:
+      - conda_vol:/opt/conda
+      - work_vol:/home/jovyan/work
+    ports:
+      - 11000:8888
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+
+volumes:
+  conda_vol:
+  work_vol:
