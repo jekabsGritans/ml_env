@@ -8,7 +8,7 @@ RUN mamba create --quiet --yes -p "${CONDA_DIR}/envs/${conda_env}" python=${py_v
 
 RUN mamba install -c conda-forge jupyterlab_vim jupyterlab-git ipywidgets
 
-RUN conda install -n ${conda_env} --yes pytorch torchvision torchaudio cudatoolkit=11.3 scikit-learn -c pytorch -c conda-forge
+RUN conda install -n ${conda_env} --yes pytorch torchvision torchaudio cudatoolkit=11.3 scikit-learn transformers -c pytorch -c conda-forge -c huggingface
 
 # create Python kernel and link it to jupyter
 RUN "${CONDA_DIR}/envs/${conda_env}/bin/python" -m ipykernel install --user --name="${conda_env}" && \
